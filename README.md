@@ -1,3 +1,5 @@
+## Change to Readme Per inclass Practice - JGarrison  5:46 2/7###
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
