@@ -11,4 +11,4 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   declarations: [HomePageComponent]
 })
-export class HomeModule { }
+export class HomeModule {}
