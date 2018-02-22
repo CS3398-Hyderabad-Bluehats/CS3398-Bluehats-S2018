@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from './login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,20 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  constructor(private router: Router) {
+
+  }
+  onSubmit() {
+    console.log("submitting");
+    this.submitted = true;
+  }
+
+  login() {
+    console.log("submitting");
+    this.submitted = true;
+    this.router.navigateByUrl('/home');
+    //call to backend 
+  }
 
   ngOnInit() {
   }
