@@ -7,7 +7,7 @@ import java.util.Map;
 // import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +17,7 @@ public class LoginController {
     private static final String greeting = "Hello, %s!\n";
     private static final String message = "Login successful: %s!\n";
 
-    @RequestMapping("/login")
+    @RequestMapping(value="/login", method=RequestMethod.GET)
     public String login(@RequestParam Map<String,String> requestParams) throws Exception {
         String name=requestParams.get("name");
         String password="password";    //requestParams.get("password");
