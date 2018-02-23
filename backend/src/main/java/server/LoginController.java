@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    private static final String greeting = "Hello, %s!\n";
-    private static final String message = "Login successful: %s!\n";
+    private static final String greeting = "Hello, %s!";
+    private static final String message = "Login successful: %s!";
 
     @RequestMapping(value="/login", method=RequestMethod.GET)
     public String login(@RequestParam Map<String,String> requestParams) throws Exception {
@@ -23,6 +23,6 @@ public class LoginController {
         String password="password";    //requestParams.get("password");
         boolean success = password.equals("password") ? true : false;
         
-        return "Login test: " + String.format(greeting, name) + String.format(message, String.valueOf(success));
+        return "Login test: " + String.format(greeting, name)  + " " + String.format(message, String.valueOf(success));
     }
 }
