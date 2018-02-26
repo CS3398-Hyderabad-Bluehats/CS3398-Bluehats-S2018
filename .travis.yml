@@ -1,0 +1,21 @@
+matrix:
+  include:
+    - language: java
+      jdk:
+        - oraclejdk8
+      before_script:
+        - cd backend
+      script:
+        - ./gradlew run
+      after_script:
+        - cd ..
+
+    - language: node_js
+      node_js:
+        - "7"
+      before_script:
+        - cd frontend
+      script:
+        - ./gradlew run
+      after_script:
+        - cd ..
