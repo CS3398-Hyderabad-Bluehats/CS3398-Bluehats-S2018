@@ -13,8 +13,8 @@ matrix:
       node_js:
         - "7"
       before_script:
-        - npm install
         - cd frontend
+        - npm install
       script:
         - ng build
       after_script:
