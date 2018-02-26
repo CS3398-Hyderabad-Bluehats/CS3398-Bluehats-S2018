@@ -15,7 +15,7 @@ Frontend - Integrate login with Java Controllers, Design image ranking algorithm
 Backend - Integrate ControllerAPI with database manager.<BR>
 Database - Test models work correctly with Controller and Frontend.<BR>
 
-Optional To-Do:<BR
+Optional To-Do:<BR>
 Build user page.(Frontend)<BR>
 Build user relationships.(Backend)<BR>
 Validate integration operations.(All)<BR>
