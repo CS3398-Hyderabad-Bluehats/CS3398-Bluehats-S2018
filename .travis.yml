@@ -1,11 +1,10 @@
 matrix:
   include:
     - language: java
-      jdk:
-        - oraclejdk8
       before_script:
         - cd backend
       script:
+        - ./gradlew assemble
         - ./gradlew run
       after_script:
         - cd ..
