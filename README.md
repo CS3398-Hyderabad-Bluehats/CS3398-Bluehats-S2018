@@ -1,6 +1,7 @@
 ## Statos
-[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=master)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
-Stratos is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
+[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=development)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
+<BR>
+<BR>Stratos is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
 <BR>
 Status of Project:<BR>
 <BR>
