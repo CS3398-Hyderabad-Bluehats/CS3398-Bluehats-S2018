@@ -5,7 +5,7 @@ matrix:
         - cd backend
       script:
         - ./gradlew assemble
-        - ./gradlew run
+        - ./gradlew build
       after_script:
         - cd ..
 
@@ -15,6 +15,6 @@ matrix:
       before_script:
         - cd frontend
       script:
-        - ./gradlew run
+        - ng build
       after_script:
         - cd ..
