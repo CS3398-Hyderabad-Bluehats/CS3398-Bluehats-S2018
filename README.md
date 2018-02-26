@@ -1,3 +1,25 @@
+## Statos
+[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=master)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
+Stratos is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
+<BR>
+Status of Project:<BR>
+<BR>
+Currently completed:<BR>
+Frontend - Login Page, Home Page, Navigation, Scaffold for User authentication.<BR>
+Backend - Running LoginController, ServerController, and Application.<BR>
+Backend - Table outline<BR>
+<BR>
+To-Do (Currently):<BR>
+Frontend - Integrate login with Java Controllers, Design image ranking algorithm/implementation, Add emblem into Brand and modify navigation.<BR>
+Backend - Integrate ControllerAPI with database manager.<BR>
+Database - Test models work correctly with Controller and Frontend.<BR>
+
+Optional To-Do:<BR
+Build user page.(Frontend)<BR>
+Build user relationships.(Backend)<BR>
+Validate integration operations.(All)<BR>
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
