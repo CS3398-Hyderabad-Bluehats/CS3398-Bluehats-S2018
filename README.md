@@ -1,4 +1,4 @@
-## Status
+## Stratus
 [![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=development)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
 <BR>
 <BR>Stratus is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
