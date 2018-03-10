@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
     //call to backend 
   }
 
+  Register() {
+    this.router.navigateByUrl('/register');
+  }
+
   ngOnInit() {
   }
 
