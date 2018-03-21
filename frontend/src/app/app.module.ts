@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Import application modules with content
 import { HomeModule } from './home/home.module';
 import { LoginModule } from "./login/login.module";
 import { AppRoutingModule } from './app-routing.module'
 
-// import alert service and component
+// Import alert service and component
 import { AlertComponent } from './_directives/index';
 import { AlertService } from './_services/index';
 
