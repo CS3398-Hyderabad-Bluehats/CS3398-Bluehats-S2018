@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 // Import application modules with content
 import { HomeModule } from './home/home.module';
 import { LoginModule } from "./login/login.module";
+import { ImageModule } from './image/image.module';
 import { AppRoutingModule } from './app-routing.module'
 
 // Import alert service and component
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HomeModule,
     LoginModule,
+    ImageModule,
     AppRoutingModule
   ],
   providers: [
