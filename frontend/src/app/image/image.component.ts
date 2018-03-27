@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
 import { FancyImageUploaderOptions, UploadedFile } from 'ng2-fancy-image-uploader';
 
 @Component({
@@ -15,10 +17,10 @@ export class ImageComponent implements OnInit {
     maxImageSize: 3
   };
 
-  constructor() {
-  }
+  constructor(private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle("User Images");
   }
 
   onUpload(file: UploadedFile) {

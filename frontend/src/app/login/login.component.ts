@@ -3,6 +3,7 @@ import { Login } from './login';
 import { Router } from '@angular/router';
 
 import { AlertService } from '../_services/index';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,10 +19,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private alertService: AlertService
-  ) {
+    private alertService: AlertService,
+    private titleService: Title
+  ) {}
 
+  ngOnInit() {
+    this.titleService.setTitle("Login");
   }
+
   onSubmit() {
     console.log("submitting");
     this.submitted = true;
@@ -33,9 +38,6 @@ export class LoginComponent implements OnInit {
     // this.alertService.success("You logged in successfully!");
     this.router.navigateByUrl('/home');
     //call to backend 
-  }
-
-  ngOnInit() {
   }
 
   // These functions make alerts to the web page
