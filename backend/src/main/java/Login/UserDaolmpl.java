@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
   
   public void register(User user) {
     String sql = "insert into users values(?,?,?,?,?,?,?)";
-    jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.get    Firstname(), user.getLastname(), user.getEmail()})
+    jdbcTemplate.update(sql, new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(), user.getLastname(), user.getEmail()})
   }
 
   public User validateUser(Login login) {
