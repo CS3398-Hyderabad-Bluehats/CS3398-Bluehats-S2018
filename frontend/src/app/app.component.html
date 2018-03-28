@@ -1,32 +1,29 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">
-        <img src="" class="logo">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/brand/brand.png" class="logo" width="30" height="30" alt="Stratus">
       </a>
-      <span class="navbar-brand">Image Board App</span>
     </div>
     <ul class="nav navbar-nav">
-      <li>
-        <a routerLink="/home" routerLinkActive="active">Home</a>
-      </li>
-      <li>
-        <a routerLink="/login" routerLinkActive="active">Login</a>
-      </li>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li><a routerLink="/image" routerLinkActive="active">Image</a></li>
+      <li><a routerLink="/user" routerLinkActive="active">User</a></li>
     </ul>
   </div>
 </nav>
-<div class="jumbotron">
-  <div class="container-fluid text-center">
+<div class="container-fluid text-center">
+  <div class="jumbotron">
     <div class="row content">
-      <div class="col-sm-2 sidenav jumbotron">
+      <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
         <p>Sidebar left</p>
       </div>
       <div class="col-sm-8 text-left">
         <alert></alert>
         <router-outlet></router-outlet>
       </div>
-      <div class="col-sm-2 sidenav jumbotron">
+      <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
         <p>Sidebar right</p>
       </div>
     </div>
