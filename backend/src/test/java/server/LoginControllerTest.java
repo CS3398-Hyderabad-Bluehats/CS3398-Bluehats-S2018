@@ -24,8 +24,11 @@ public class LoginControllerTest {
 
     @Test
     public void getLogin() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/login").accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(content().string(equalTo("Login test: Hello, Test! Login successful: true!")));
+        mvc.perform(MockMvcRequestBuilders.post("/login")
+            .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+            .param("name", "Test").param("password", "password"))
+            .andExpect(status().isOk())
+            .andExpect(content().string(equalTo("Login test: Hello, Test! Login successful: true!")));
     }
+
 }

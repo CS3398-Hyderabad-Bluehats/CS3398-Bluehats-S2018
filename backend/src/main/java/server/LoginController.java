@@ -24,8 +24,8 @@ public class LoginController {
     public String POSTlogin(@RequestBody LoginCredentials info) throws Exception {
         //String password = "password";    //requestParams.get("password");
         boolean success = info.getPassword().equals("password") ? true : false;
-//        System.out.println(info.getName());
-//        System.out.println(info.getPassword());
+        //System.out.println(info.getName());
+        //System.out.println(info.getPassword());
         return "Login test: " + String.format(greeting, info.getName())  + " " + String.format(message, String.valueOf(success));
     }
 
