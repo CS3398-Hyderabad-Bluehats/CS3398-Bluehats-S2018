@@ -1,0 +1,21 @@
+matrix:
+  include:
+    - language: java
+      before_script:
+        - cd backend
+      script:
+        - ./gradlew assemble
+        - ./gradlew build
+      after_script:
+        - cd ..
+
+    - language: node_js
+      node_js:
+        - "7"
+      before_script:
+        - cd frontend
+        - npm install
+      script:
+        - ng build
+      after_script:
+        - cd ..
