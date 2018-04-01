@@ -16,15 +16,21 @@
 <div class="container-fluid text-center">
   <div class="jumbotron">
     <div class="row content">
-      <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
+      <div class="col-sm-2 sidenav" style="position: sticky; top: 0;">
         <p>Sidebar left</p>
+        <a class="navbar-brand" href="/">
+          <img src="/assets/brand/brand.png" class="logo" width="30" height="30" alt="Stratus">
+        </a>
       </div>
       <div class="col-sm-8 text-left">
         <alert></alert>
         <router-outlet></router-outlet>
       </div>
-      <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
-        <p>Sidebar right</p>
+      
+        <button (click)="toggleCollapse()" class="navbar-toggler navbar-toggler-right" type="button"></button>
+        <div class="collapse" [class.show]="show">
+            <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
+              <app-sidebar></app-sidebar></div>
       </div>
     </div>
   </div>
