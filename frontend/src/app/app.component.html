@@ -6,10 +6,18 @@
       </a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-      <li><a routerLink="/image" routerLinkActive="active">Image</a></li>
-      <li><a routerLink="/user" routerLinkActive="active">User</a></li>
+      <li>
+        <a routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
+      <li>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li>
+        <a routerLink="/image" routerLinkActive="active">Image</a>
+      </li>
+      <li>
+        <a routerLink="/user" routerLinkActive="active">User</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -26,11 +34,11 @@
         <alert></alert>
         <router-outlet></router-outlet>
       </div>
-      
-        <button (click)="toggleCollapse()" class="navbar-toggler navbar-toggler-right" type="button"></button>
-        <div class="collapse" [class.show]="show">
-            <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
-              <app-sidebar></app-sidebar></div>
+      <button (click)="toggleCollapse()" class="navbar-toggler navbar-toggler-right" type="button"></button>
+      <div class="collapse" [class.show]="show">
+        <div class="col-sm-2 sidenav jumbotron" style="position: sticky; top: 0;">
+          <app-sidebar></app-sidebar>
+        </div>
       </div>
     </div>
   </div>
