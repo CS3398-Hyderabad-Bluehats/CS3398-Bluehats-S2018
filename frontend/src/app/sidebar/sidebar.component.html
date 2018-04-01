@@ -1,0 +1,20 @@
+<ng-container *ngIf="isUser; then authenticated else default"></ng-container>
+
+<ng-template #authenticated>
+  <label for="userName">Hello: </label>
+  <input class="form-control" type="text" placeholder="{{this.user.name}}" id="userName" readonly>
+  <div class="card card-block" *ngFor="let image of user.images">
+    <label for="imageName">Image:</label>
+    <input class="form-control" type="text" placeholder="{{image.name}}" id="imageName">
+    <input class="form-control" type="text" placeholder="{{image.image}}">
+    <label for="imageDesc">Description:</label>
+    <input class="form-control" type="text" placeholder="{{image.description}}" id="imageDesc">
+  </div>
+</ng-template>
+<ng-template #default>
+  <div>Not logged in.</div>
+</ng-template>
+<p>
+  <button type="button" class="btn btn-primary" (click)="newModel();"></button>
+  <button type="button" class="btn btn-primary" (click)="setUser();"></button>
+</p>

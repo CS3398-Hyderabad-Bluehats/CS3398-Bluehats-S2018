@@ -14,13 +14,15 @@ import { AlertService } from './_services/index';
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     // include alert directive component in app module declarations
-    AlertComponent
+    AlertComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
