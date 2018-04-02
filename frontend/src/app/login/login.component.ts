@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { Register } from './register';
 
 import { AlertService } from '../_services/index';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,17 +23,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-<<<<<<< Updated upstream
-    private alertService: AlertService
-  ) {
-=======
     private alertService: AlertService,
     private titleService: Title,
     private modalService: NgbModal
   ) {}
->>>>>>> Stashed changes
 
+  ngOnInit() {
+    this.titleService.setTitle("Login");
   }
+
   onSubmit() {
     console.log("submitting");
     this.submitted = true;
@@ -50,15 +49,9 @@ export class LoginComponent implements OnInit {
   }
 
   open(content) {this.modalService.open(content); }
+  
   newTask() {this.model = new Register('','',''); }
 
-
-  Register() {
-    this.router.navigateByUrl('/register');
-  }
-
-  ngOnInit() {
-  }
 
   // These functions make alerts to the web page
   // you can use them by calling this.success("My alert message").
