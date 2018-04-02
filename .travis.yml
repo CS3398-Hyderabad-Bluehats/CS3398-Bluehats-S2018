@@ -1,0 +1,12 @@
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "7"
+      before_script:
+        - cd frontend
+        - npm install
+      script:
+        - ng build
+      after_script:
+        - cd ..
