@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { Register } from './register';
+
 import { AlertService } from '../_services/index';
 import { Title } from '@angular/platform-browser';
 
@@ -20,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private alertService: AlertService,
-    private titleService: Title
+    private titleService: Title,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
@@ -38,6 +43,17 @@ export class LoginComponent implements OnInit {
     // this.alertService.success("You logged in successfully!");
     this.router.navigateByUrl('/home');
     //call to backend 
+  }
+  register() {
+
+  }
+
+  open(content) {this.modalService.open(content); }
+  newTask() {this.model = new Register('','',''); }
+
+
+  Register() {
+    this.router.navigateByUrl('/register');
   }
 
   // These functions make alerts to the web page
