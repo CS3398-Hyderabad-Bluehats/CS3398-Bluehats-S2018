@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { Register } from './register';
+
 import { AlertService } from '../_services/index';
 
 
@@ -18,8 +22,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
+<<<<<<< Updated upstream
     private alertService: AlertService
   ) {
+=======
+    private alertService: AlertService,
+    private titleService: Title,
+    private modalService: NgbModal
+  ) {}
+>>>>>>> Stashed changes
 
   }
   onSubmit() {
@@ -34,6 +45,13 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/home');
     //call to backend 
   }
+  register() {
+
+  }
+
+  open(content) {this.modalService.open(content); }
+  newTask() {this.model = new Register('','',''); }
+
 
   Register() {
     this.router.navigateByUrl('/register');
