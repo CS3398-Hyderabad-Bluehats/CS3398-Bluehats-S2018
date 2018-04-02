@@ -27,3 +27,11 @@
       background-color: rgba(3,3,3,0.5);    
       color: white;    
   }
+  .modal-backdrop.fade 
+  {
+      opacity: 0.5;
+  }
+  .modal-open .modal
+  {
+      opacity: 1;
+  }

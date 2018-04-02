@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { AlertService } from '../_services/index';
 
@@ -6,4 +7,11 @@ import { AlertService } from '../_services/index';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {}
+export class HomePageComponent implements OnInit {
+  
+  constructor(private titleService: Title) {}
+
+  ngOnInit() {
+    this.titleService.setTitle("Home");
+  }
+}

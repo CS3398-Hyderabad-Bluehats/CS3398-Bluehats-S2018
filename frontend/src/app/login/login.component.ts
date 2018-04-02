@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { Register } from './register';
+
 import { AlertService } from '../_services/index';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,10 +23,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private alertService: AlertService
-  ) {
+    private alertService: AlertService,
+    private titleService: Title,
+    private modalService: NgbModal
+  ) {}
 
+  ngOnInit() {
+    this.titleService.setTitle("Login");
   }
+
   onSubmit() {
     console.log("submitting");
     this.submitted = true;
@@ -34,8 +44,16 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/home');
     //call to backend 
   }
+  register() {
 
-  ngOnInit() {
+  }
+
+  open(content) {this.modalService.open(content); }
+  newTask() {this.model = new Register('','',''); }
+
+
+  Register() {
+    this.router.navigateByUrl('/register');
   }
 
   // These functions make alerts to the web page
