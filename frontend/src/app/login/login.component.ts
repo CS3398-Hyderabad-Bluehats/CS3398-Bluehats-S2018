@@ -22,15 +22,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-<<<<<<< Updated upstream
-    private alertService: AlertService
-  ) {
-=======
     private alertService: AlertService,
     private titleService: Title,
     private modalService: NgbModal
   ) {}
->>>>>>> Stashed changes
 
   }
   onSubmit() {
