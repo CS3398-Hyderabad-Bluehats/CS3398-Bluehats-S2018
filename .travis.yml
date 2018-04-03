@@ -1,5 +1,6 @@
 matrix:
   include:
+    # System configuration
     sudo: required
     dist: trusty
     
