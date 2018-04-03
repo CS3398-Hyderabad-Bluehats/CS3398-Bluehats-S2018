@@ -1,8 +1,7 @@
+sudo: required
+dist: trusty
 matrix:
-  include:
-    sudo: required
-    dist: trusty
-    
+  include:    
     # Angular Frontend
     - language: node_js
       node_js: '7'
