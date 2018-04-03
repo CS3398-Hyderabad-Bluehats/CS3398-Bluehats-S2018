@@ -4,7 +4,7 @@ matrix:
     sudo: required
     dist: trusty
     language: node_js
-    node_js: '4.2'
+    node_js: '7'
 
     addons:
     apt:
@@ -28,11 +28,11 @@ matrix:
     script: karma start config/karma.conf.js --single-run
 
     # Gradle
-    language: java
-    before_script:
-      - cd backend
-    script:
-      - ./gradlew assemble
-      - ./gradlew build
-    after_script:
-      - cd .. 
+    # language: java
+    # before_script:
+    #   - cd backend
+    # script:
+    #   - ./gradlew assemble
+    #   - ./gradlew build
+    # after_script:
+    #   - cd .. 
