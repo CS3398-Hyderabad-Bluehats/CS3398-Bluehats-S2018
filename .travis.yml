@@ -17,5 +17,6 @@ matrix:
         - npm install
       script:
         - ng build
+        - ng test
       after_script:
         - cd ..

@@ -14,15 +14,14 @@ import { AlertService } from './_services/index';
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     // include alert directive component in app module declarations
-    AlertComponent,
-    SidebarComponent
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ImageModule,
     UserModule,
     AngularFontAwesomeModule,
+    SidebarModule,
     AppRoutingModule,
   ],
   providers: [
