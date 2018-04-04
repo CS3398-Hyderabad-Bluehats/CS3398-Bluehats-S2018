@@ -17,15 +17,15 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class LoginControllerTest {
+public class DefaultControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void getLogin() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/login?name=Test").accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(content().string(equalTo("Login test: Hello, Test! Login successful: true!")));
+    public void getHello() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("Greetings from Spring Boot!")));
     }
 }

@@ -8,7 +8,7 @@ import { Register } from './register';
 
 import { AlertService } from '../_services/index';
 import { Title } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   model = new Login('system', 'password');
-  regModel = new Register('','','');
+  regModel = new Register('', '', '');
 
   submitted = false;
 
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private modalService: NgbModal,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.titleService.setTitle("Login");
@@ -37,19 +37,41 @@ export class LoginComponent implements OnInit {
 
   loginSubmit(logForm: NgForm) {
     console.log(logForm.value);
-    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
-    this.router.navigateByUrl('/home');
-    this.alertService.success("Welcome " + logForm.value.name);
+    let tempName = logForm.value.name;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    this.http.put("http://localhost:8080/login",
+      { name: logForm.value.name, password: logForm.value.password },
+      { headers: headers }
+    ).subscribe(results => {
+      logForm.reset();
+      console.log("Results from LOGIN POST");
+      console.log(results);
+      if (results) {
+        this.router.navigateByUrl('/home');
+        this.alertService.success("Welcome " + tempName);
+      } else {
+        this.model = new Login('system', 'password');
+        this.alertService.error("Failed to login. Try again.");
+      }
+    });
   }
 
 
-  open(content) {this.modalService.open(content); }
-  newTask() {this.model = new Register('','',''); }
+  open(content) { this.modalService.open(content); }
+  newTask() { this.model = new Register('', '', ''); }
 
   regSubmit(regForm: NgForm) {
     console.log(regForm.value);
     this.alertService.success("User account " + regForm.value.username + " created successfully");
-    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
+    this.http
+      .post(
+        "http://localhost:8080/login",
+        { name: regForm.value.username, password: regForm.value.password }
+      ).subscribe(results => {
+        console.log("Results from REG POST");
+        console.log(results);
+      });
   }
   /*Register() {
     this.router.navigateByUrl('/register');
