@@ -8,6 +8,7 @@ import { Register } from './register';
 
 import { AlertService } from '../_services/index';
 import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { Title } from '@angular/platform-browser';
 export class LoginComponent implements OnInit {
 
   model = new Login('system', 'password');
+  regModel = new Register('','','');
 
   submitted = false;
 
@@ -25,36 +27,33 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private titleService: Title,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
     this.titleService.setTitle("Login");
   }
 
-  onSubmit() {
-    console.log("submitting");
-    this.submitted = true;
-  }
-
-  login() {
-    console.log("submitting");
-    this.submitted = true;
-    // this.alertService.success("You logged in successfully!");
+  loginSubmit(logForm: NgForm) {
+    console.log(logForm.value);
+    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
     this.router.navigateByUrl('/home');
-    //call to backend 
+    this.alertService.success("Welcome " + logForm.value.name);
   }
-  register() {
 
-  }
 
   open(content) {this.modalService.open(content); }
   newTask() {this.model = new Register('','',''); }
 
-
-  Register() {
-    this.router.navigateByUrl('/register');
+  regSubmit(regForm: NgForm) {
+    console.log(regForm.value);
+    this.alertService.success("User account " + regForm.value.username + " created successfully");
+    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
   }
+  /*Register() {
+    this.router.navigateByUrl('/register');
+  }*/
 
   // These functions make alerts to the web page
   // you can use them by calling this.success("My alert message").

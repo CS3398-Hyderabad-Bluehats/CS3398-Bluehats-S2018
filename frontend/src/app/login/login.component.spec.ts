@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { AlertComponent } from '../_directives';
 import { AlertService } from '../_services';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -16,6 +17,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
+        HttpClientModule,
         RouterTestingModule,
         LoginRoutingModule,
         NgbModule.forRoot()
