@@ -1,4 +1,5 @@
 package jbr.springmvc.model;
+import java.util.ArrayList;
 
 public class ImageHistory {
   private ArrayList<String> imageList;

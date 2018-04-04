@@ -1,15 +1,16 @@
 package jbr.springmvc.model;
+import java.util.ArrayList;
 
 public class CommentHistory {
-  private ArrayList commentList;
+  private ArrayList<Comment> commentList;
 
-  public ArrayList getCommentList() {
+  public ArrayList<Comment> getCommentList() {
    return commentList;
   }
  
-  public void setList(ArrayList commentList) {
+  public void setList(ArrayList<Comment> commentList) {
    this.commentList = commentList;
   }
 
-  public void addEntry(comment newComment) {commentList.add(newComment);}
+  public void addEntry(Comment newComment) {commentList.add(newComment);}
 }

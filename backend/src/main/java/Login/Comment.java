@@ -1,4 +1,5 @@
 package jbr.springmvc.model;
+import java.util.Date;
 
 public class Comment {
   private String text;
