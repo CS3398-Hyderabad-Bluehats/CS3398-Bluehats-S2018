@@ -1,0 +1,27 @@
+<div class="list-group panel">
+  <ng-container *ngIf="isUser; then authenticated else default"></ng-container>
+  <ng-template #authenticated>
+    <label for="userName">Hello: </label>
+    <input class="form-control" type="text" placeholder="{{this.user.name}}" id="userName" readonly>
+    <div *ngFor="let image of user.images">
+      <a href="#{{image.name}}" class="list-group-item collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+          <i class="fas fa-image"></i>
+          <span class="hidden-sm-down">{{image.name}}</span>
+      </a>
+      <div class="collapse" id="{{image.name}}">
+        <p>{{image.image}}</p>
+        {{image.description}}
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #default>
+    <div>Not logged in.</div>
+  </ng-template>
+  <p>
+    <button type="button" class="btn btn-primary" (click)="newModel();"></button>
+    <button type="button" class="btn btn-primary" (click)="setUser();"></button>
+  </p>
+  <a class="navbar-brand" href="/">
+    <img src="/assets/brand/brand.png" class="logo" width="30" height="30" alt="Stratus">
+  </a>
+</div>
