@@ -9,6 +9,7 @@ public class User {
   private String email;
   private String address;
   private int phone;
+  private bool publicVisibility = true;
 
   public String getUsername() {
     return username;
@@ -55,5 +56,13 @@ public class User {
     Random rand = new Random();
     int newPassword = rand.nextInt(89999999) + 10000000;
     setPassword(newPassword);
+  }
+
+  public String getVisibility() {
+    return publicVisibility;
+  }
+
+  public void setVisibility (bool publicVisibility) {
+    this.publicVisibility = publicVisibility;
   }
 }
