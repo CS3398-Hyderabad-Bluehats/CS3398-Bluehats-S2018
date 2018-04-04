@@ -41,9 +41,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/home');
     this.alertService.success("Welcome " + logForm.value.name);
   }
-  register() {
-
-
+  
   open(content) {this.modalService.open(content); }
   newTask() {this.model = new Register('','',''); }
 
@@ -55,10 +53,6 @@ export class LoginComponent implements OnInit {
   /*Register() {
     this.router.navigateByUrl('/register');
   }*/
-
-  open(content) {this.modalService.open(content); }
-  
-  newTask() {this.model = new Register('','',''); }
 
 
   // These functions make alerts to the web page
