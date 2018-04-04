@@ -1,5 +1,17 @@
 matrix:
   include:
+<<<<<<< HEAD
+=======
+    - language: java
+      before_script:
+        - cd backend
+      script:
+        - ./gradlew assemble
+        - ./gradlew build
+      after_script:
+        - cd ..
+
+>>>>>>> development
     - language: node_js
       node_js:
         - "7"
