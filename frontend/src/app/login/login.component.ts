@@ -37,11 +37,8 @@ export class LoginComponent implements OnInit {
 
   loginSubmit(logForm: NgForm) {
     console.log(logForm.value);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    headers.append("Access-Control-Allow-Origin", "*");
-    headers.append("Access-Control-Allow-Methods", "*");
-    headers.append("Access-Control-Allow-Headers", "*");
+    let tempName = logForm.value.name;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     this.http.put("http://localhost:8080/login",
       { name: logForm.value.name, password: logForm.value.password },
@@ -52,7 +49,7 @@ export class LoginComponent implements OnInit {
       console.log(results);
       if (results) {
         this.router.navigateByUrl('/home');
-        this.alertService.success("Welcome " + logForm.value.name);
+        this.alertService.success("Welcome " + tempName);
       } else {
         this.model = new Login('system', 'password');
         this.alertService.error("Failed to login. Try again.");
