@@ -26,6 +26,6 @@ public class Login {
    {
       Random rand = new Random();
       int newPassword = rand.nextInt(89999999) + 10000000;
-      setPassword(newPassword);
+      setPassword(Integer.toString(newPassword));
    }
 }

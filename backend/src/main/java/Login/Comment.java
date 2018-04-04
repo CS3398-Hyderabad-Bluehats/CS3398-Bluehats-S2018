@@ -14,7 +14,7 @@ public class Comment {
    this.text = text;
   }
  
-  public String getVoteBalance() {
+  public int getVoteBalance() {
    return voteBalance;
   }
  
@@ -24,7 +24,7 @@ public class Comment {
 
   public void decrementVoteBalance() { this.voteBalance--; }
 
-  public String getDateCreated() {
+  public Date getDateCreated() {
     return dateCreated;
   }
 

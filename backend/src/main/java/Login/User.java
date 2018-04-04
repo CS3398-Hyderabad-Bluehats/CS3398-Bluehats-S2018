@@ -8,7 +8,7 @@ public class User {
   private String email;
   private String address;
   private int phone;
-  private bool publicVisibility = true;
+  private boolean publicVisibility = true;
 
   public String getUsername() {
     return username;
@@ -50,11 +50,11 @@ public class User {
     this.email = email;
   }
 
-  public String getVisibility() {
+  public boolean getVisibility() {
     return publicVisibility;
   }
 
-  public void setVisibility (bool publicVisibility) {
+  public void setVisibility (boolean publicVisibility) {
     this.publicVisibility = publicVisibility;
   }
 }
