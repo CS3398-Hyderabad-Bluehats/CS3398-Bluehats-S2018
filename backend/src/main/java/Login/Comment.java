@@ -29,7 +29,7 @@ public class Comment {
   }
 
   public void setDateCreated() {
-    this.dateCreated = Date(System.currentTimeMillis());
+    this.dateCreated = Date();
   }
 
 }
