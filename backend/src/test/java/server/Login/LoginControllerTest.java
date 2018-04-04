@@ -1,4 +1,4 @@
-// package server;
+// package server.Login;
 
 // import static org.hamcrest.Matchers.equalTo;
 // import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -22,13 +22,12 @@
 //     @Autowired
 //     private MockMvc mvc;
 
-//     // @Test
-//     // public void getLogin() throws Exception {
-//     //     mvc.perform(MockMvcRequestBuilders.post("/login")
-//     //         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-//     //         .param("name", "Test").param("password", "password"))
-//     //         .andExpect(status().isOk())
-//     //         .andExpect(content().string(equalTo("Login test: Hello, Test! Login successful: true!")));
-//     // }
+//     @Test
+//     public void getLogin() throws Exception {
+//         mvc.perform(MockMvcRequestBuilders.post("/login")
+//             .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//             .param("name", "Test").param("password", "password"))
+//             .andExpect(status().isOk());
+//     }
 
 // }
