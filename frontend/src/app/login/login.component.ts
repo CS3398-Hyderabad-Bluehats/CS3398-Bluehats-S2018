@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   newTask() {this.model = new Register('','',''); }
 
   regSubmit(regForm: NgForm) {
-    console.log(regForm.value.username);
+    console.log(regForm.value);
     this.alertService.success("User account " + regForm.value.username + " created successfully");
     this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
   }
