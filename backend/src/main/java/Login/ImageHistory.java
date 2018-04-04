@@ -11,5 +11,5 @@ public class ImageHistory {
    this.imageList = imageList;
   }
 
-  public void addEntry(String newImage) {imageList.add(newImage)}
+  public void addEntry(String newImage) {imageList.add(newImage);}
 }

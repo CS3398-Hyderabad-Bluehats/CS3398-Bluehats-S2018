@@ -11,5 +11,5 @@ public class CommentHistory {
    this.commentList = commentList;
   }
 
-  public void addEntry(comment newComment) {commentList.add(newComment)}
+  public void addEntry(comment newComment) {commentList.add(newComment);}
 }
