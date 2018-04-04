@@ -1,5 +1,4 @@
 package jbr.springmvc.model;
-import java.util.Random;
 
 public class User {
   private String username;
@@ -49,13 +48,6 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-  public void resetPassword()
-  {
-    Random rand = new Random();
-    int newPassword = rand.nextInt(89999999) + 10000000;
-    setPassword(newPassword);
   }
 
   public String getVisibility() {

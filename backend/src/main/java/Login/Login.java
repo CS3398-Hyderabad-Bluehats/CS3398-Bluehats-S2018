@@ -1,4 +1,5 @@
 package jbr.springmvc.model;
+import java.util.Random;
 
 
 public class Login {
@@ -19,5 +20,12 @@ public class Login {
    
    public void setPassword(String password) {
       this.password = password;
+   }
+
+   public void resetPassword()
+   {
+      Random rand = new Random();
+      int newPassword = rand.nextInt(89999999) + 10000000;
+      setPassword(newPassword);
    }
 }
