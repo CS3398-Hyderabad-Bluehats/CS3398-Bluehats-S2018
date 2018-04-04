@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { Register } from './register';
+
 import { AlertService } from '../_services/index';
 import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,31 +19,41 @@ import { Title } from '@angular/platform-browser';
 export class LoginComponent implements OnInit {
 
   model = new Login('system', 'password');
+  regModel = new Register('','','');
 
   submitted = false;
 
   constructor(
     private router: Router,
     private alertService: AlertService,
-    private titleService: Title
+    private titleService: Title,
+    private modalService: NgbModal,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
     this.titleService.setTitle("Login");
   }
 
-  onSubmit() {
-    console.log("submitting");
-    this.submitted = true;
+  loginSubmit(logForm: NgForm) {
+    console.log(logForm.value);
+    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
+    this.router.navigateByUrl('/home');
+    this.alertService.success("Welcome " + logForm.value.name);
   }
 
-  login() {
-    console.log("submitting");
-    this.submitted = true;
-    // this.alertService.success("You logged in successfully!");
-    this.router.navigateByUrl('/home');
-    //call to backend 
+
+  open(content) {this.modalService.open(content); }
+  newTask() {this.model = new Register('','',''); }
+
+  regSubmit(regForm: NgForm) {
+    console.log(regForm.value.username);
+    this.alertService.success("User account " + regForm.value.username + " created successfully");
+    this.http.put("http://localhost.com:8080/login", {}).subscribe(results => {});
   }
+  /*Register() {
+    this.router.navigateByUrl('/register');
+  }*/
 
   // These functions make alerts to the web page
   // you can use them by calling this.success("My alert message").
