@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   model = new Login('system', 'password');
   regModel = new Register('', '', '');
 
-  submitted = false;
+  @Input() loginEnabled = true; 
+  @Input() registerEnabled = true;
 
   constructor(
     private router: Router,
@@ -36,7 +37,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit(logForm: NgForm) {
-    console.log(logForm.value);
     let tempName = logForm.value.name;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
       { headers: headers }
     ).subscribe(results => {
       logForm.reset();
-      console.log("Results from LOGIN POST");
-      console.log(results);
       if (results) {
         this.router.navigateByUrl('/home');
         this.alertService.success("Welcome " + tempName);
