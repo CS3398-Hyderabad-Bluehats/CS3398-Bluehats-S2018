@@ -17,7 +17,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  title = "Login";
   model = new Login('system', 'password');
   regModel = new Register('', '', '');
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.titleService.setTitle("Login");
+    this.titleService.setTitle(this.title);
   }
 
   loginSubmit(logForm: NgForm) {
