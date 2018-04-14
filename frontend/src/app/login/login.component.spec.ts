@@ -1,27 +1,34 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from "@angular/platform-browser-dynamic/testing";
 
-import { LoginComponent } from './login.component';
+import { LoginComponent, LoginComponentWrapper } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginRoutingModule } from './login-routing.module';
 import { AlertComponent } from '../_directives';
 import { AlertService } from '../_services';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { DebugElement } from '@angular/core';
+import { DebugElement, Injectable } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-describe('LoginComponent', () => {
+
+describe('LoginComponent Test:', () => {
+  // Components to test
+  let wrapperComponent: LoginComponentWrapper;
   let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+
+  // 
+  let wrapperFixture: ComponentFixture<LoginComponentWrapper>;
+  let componentFixture: ComponentFixture<LoginComponent>;
+  
+  // Elements
   let h1: HTMLElement;
   let loginSubmit: DebugElement;
   let registerSubmit: DebugElement;
   let loginEl: DebugElement;
   let passwordEl: DebugElement;
 
-
+  // This needs to model your module.ts 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -33,28 +40,63 @@ describe('LoginComponent', () => {
         NgbModule.forRoot()
       ],
       declarations: [
+        AlertComponent,
         LoginComponent,
-        AlertComponent
+        LoginComponentWrapper
       ],
       providers: [
         AlertService
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    component.ngOnInit();
-    fixture.detectChanges();
+    wrapperFixture = TestBed.createComponent(LoginComponentWrapper);
+    componentFixture = TestBed.createComponent(LoginComponent);
+    
+    wrapperComponent = wrapperFixture.componentInstance;
+    component = componentFixture.componentInstance;
+
+    componentFixture.detectChanges();
+    wrapperFixture.detectChanges();
+
+    jasmine.addMatchers({
+      toHaveModal: function (util, customEqualityTests) {
+        return {
+          compare: function (actual, content?, selector?) {
+            console.log("toHaveModal");
+            console.log(util);
+            console.log(customEqualityTests);
+            console.log(actual);
+            console.log(content);
+            console.log(selector);
+            const allModalsContent = document.querySelector(selector || 'body').querySelectorAll('.modal-content'); let pass = true;
+            console.log(allModalsContent);
+            let errMsg;
+
+            if (!content) {
+              pass = allModalsContent.length > 0;
+              errMsg = 'at least one modal open but found none';
+            } else if (Array.isArray(content)) {
+              pass = allModalsContent.length === content.length;
+              errMsg = `${content.length} modals open but found ${allModalsContent.length}`;
+            } else {
+              pass = allModalsContent.length === 1 && allModalsContent[0].textContent.trim() === content;
+              errMsg = `exactly one modal open but found ${allModalsContent.length}`;
+            }
+
+            return { pass: pass, message: `Expected ${actual.outerHTML} to have ${errMsg}` };
+          },
+        };
+      }
+    });
 
     // Component elements
-    loginSubmit = fixture.debugElement.query(By.css('#loginButton'));
-    registerSubmit = fixture.debugElement.query(By.css('#regButton'));
-    loginEl = fixture.debugElement.query(By.css('input[type=email]'));
-    passwordEl = fixture.debugElement.query(By.css('input[type=password]'));
-    h1 = fixture.nativeElement.querySelector('h1');
+    loginSubmit = componentFixture.debugElement.query(By.css('#loginButton'));
+    registerSubmit = componentFixture.debugElement.query(By.css('#regButton'));
+    loginEl = componentFixture.debugElement.query(By.css('input[type=email]'));
+    passwordEl = componentFixture.debugElement.query(By.css('input[type=password]'));
+    h1 = componentFixture.nativeElement.querySelector('h1');
   });
 
   it('Should create', () => {
@@ -65,16 +107,36 @@ describe('LoginComponent', () => {
     expect(h1.textContent).toContain(component.title);
   });
 
-  it('Setting submitted to false disables the login submit button.', () => {
+  it('Disabling login should disable the login button.', () => {
     component.loginEnabled = false;
-    fixture.detectChanges();
+    componentFixture.detectChanges();
     expect(loginSubmit.nativeElement.disabled).toBeTruthy();
   });
-  
+
+  // Registration tests
+  // it('should open and close modal with default options', () => {
+  //   component = wrapperComponent.myComponent;
+  //   component.ngOnInit();
+  //   component.openModal('content');
+  //   componentFixture.detectChanges();
+  //   console.log("message");
+  //   // expect(fixture.nativeElement).toHaveModal('test');
+  //   // expect(document.querySelector(".modal-body")).toBeTruthy();
+  //   component.closeModal();
+  //   componentFixture.detectChanges();
+  //   // expect(fixture.nativeElement).not.toHaveModal();
+  // });
+
+
   // it('Setting submitted to false disables the register submit button.', () => {
-  //   // component.open("content");
+  //   component.openModal('content');
   //   component.registerEnabled = false;
   //   fixture.detectChanges();
-  //   expect(component.content.registerSubmit.nativeElement.disabled).toBeTruthy();
+  //   console.log("message");
+  //   // expect(fixture.nativeElement).toHaveModal('test');
+  //   // expect(document.querySelector(".modal-body")).toBeTruthy();
+  //   component.closeModal();
+  //   fixture.detectChanges();
+  //   // expect(fixture.nativeElement).not.toHaveModal();
   // });
 });

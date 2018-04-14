@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { Register } from './register';
 
@@ -18,9 +18,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   title = "Login";
+  closeResult: string;
   model = new Login('system', 'password');
   regModel = new Register('', '', '');
+  // private modalRef: any
+  
 
+  @ViewChild('content') modalRef: NgbModalRef;
   @Input() loginEnabled = true; 
   @Input() registerEnabled = true;
 
@@ -30,7 +34,7 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private modalService: NgbModal,
     private http: HttpClient
-  ) { }
+    ) { }
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
@@ -54,9 +58,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-
-  open(content) { this.modalService.open(content); }
+  
   newTask() { this.model = new Register('', '', ''); }
 
   regSubmit(regForm: NgForm) {
@@ -97,4 +99,32 @@ export class LoginComponent implements OnInit {
     this.alertService.clear();
   }
 
+  // Modal Stuff
+  openModal(content) {
+    this.modalRef = this.modalService.open(content);
+    this.modalRef.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  closeModal() { this.modalRef.close(); }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+}
+
+@Component({
+  templateUrl: './login.component.html',
+})
+export class LoginComponentWrapper {
+  @ViewChild(LoginComponent) myComponent: LoginComponent;
 }
