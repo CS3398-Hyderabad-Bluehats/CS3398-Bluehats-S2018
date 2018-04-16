@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   closeResult: string;
   model = new Login('system', 'password');
   regModel = new Register('', '', '');
-  // private modalRef: any
   
 
   @ViewChild('content') modalRef: NgbModalRef;
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private modalService: NgbModal,
     private http: HttpClient
-    ) { }
+    ) {}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);

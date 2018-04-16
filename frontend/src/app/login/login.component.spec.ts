@@ -9,26 +9,20 @@ import { AlertService } from '../_services';
 import { NgbModule, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DebugElement, Injectable } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { By, Title } from '@angular/platform-browser';
 
 
-describe('LoginComponent Test:', () => {
+describe('LoginComponent', () => {
+  let titleService: Title;
+
   // Components to test
   let wrapperComponent: LoginComponentWrapper;
   let component: LoginComponent;
 
-  // 
+  // Component fixtures:
   let wrapperFixture: ComponentFixture<LoginComponentWrapper>;
   let componentFixture: ComponentFixture<LoginComponent>;
-  
-  // Elements
-  let h1: HTMLElement;
-  let loginSubmit: DebugElement;
-  let registerSubmit: DebugElement;
-  let loginEl: DebugElement;
-  let passwordEl: DebugElement;
 
-  // This needs to model your module.ts 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -90,24 +84,23 @@ describe('LoginComponent Test:', () => {
         };
       }
     });
-
-    // Component elements
-    loginSubmit = componentFixture.debugElement.query(By.css('#loginButton'));
-    registerSubmit = componentFixture.debugElement.query(By.css('#regButton'));
-    loginEl = componentFixture.debugElement.query(By.css('input[type=email]'));
-    passwordEl = componentFixture.debugElement.query(By.css('input[type=password]'));
-    h1 = componentFixture.nativeElement.querySelector('h1');
   });
 
-  it('Should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should set the title', () => {
-    expect(h1.textContent).toContain(component.title);
+  it('should set the title', () => {
+    titleService = TestBed.get(Title);
+    expect(titleService.getTitle()).toBe(component.title);
   });
 
-  it('Disabling login should disable the login button.', () => {
+  it('should instantiate component', () => {
+    expect(component instanceof LoginComponent).toBe(true, 'should create LoginComponent');
+  });
+
+  it('disabling login should disable the login button.', () => {
+    let loginSubmit = componentFixture.debugElement.query(By.css('#loginButton'));
     component.loginEnabled = false;
     componentFixture.detectChanges();
     expect(loginSubmit.nativeElement.disabled).toBeTruthy();

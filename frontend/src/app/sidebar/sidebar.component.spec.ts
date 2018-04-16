@@ -22,4 +22,8 @@ describe('SidebarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should instantiate component', () => {
+    expect(component instanceof SidebarComponent).toBe(true, 'should create SidebarComponent');
+  });
 });
