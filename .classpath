@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="backend/backend/src/main/resources"/>
+	<classpathentry kind="src" path="backend/src/main/java"/>
+	<classpathentry excluding="server/Login/" kind="src" path="backend/src/test/java"/>
+	<classpathentry kind="src" path="backend/src/test/java/server/Login"/>
+	<classpathentry kind="src" path="CS3398-Bluehats-S2018/backend/backend/src/main/resources"/>
+	<classpathentry kind="src" path="CS3398-Bluehats-S2018/backend/src/main/java"/>
+	<classpathentry excluding="server/Login/" kind="src" path="CS3398-Bluehats-S2018/backend/src/test/java"/>
+	<classpathentry kind="src" path="CS3398-Bluehats-S2018/backend/src/test/java/server/Login"/>
+	<classpathentry kind="lib" path="backend/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="CS3398-Bluehats-S2018/backend/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
