@@ -17,6 +17,9 @@ import java.nio.file.Paths;
 
 @Controller
 public class Upload {
+	
+	public String id;
+	public String imageName;
 
     @GetMapping("/")
     public String index() {

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\src",
+    "\\backend\\src\\main",
+    "\\backend\\src\\main\\java",
+    "\\backend\\src\\main\\java\\server",
+    "\\backend\\src\\main\\java\\server\\Controllers",
+    "\\backend\\src\\main\\java\\server\\Upload",
+    "\\frontend\\src"
+  ],
+  "SelectedNode": "\\backend\\src\\main\\java\\server\\Controllers",
+  "PreviewInSolutionExplorer": false
+}

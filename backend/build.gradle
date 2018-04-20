@@ -18,6 +18,11 @@ jar {
     version =  '0.1.0'
 }
 
+bootJar {
+    baseName = 'gs-accessing-data-mongodb'
+    version =  '0.1.0'
+}
+
 repositories {
     mavenCentral()
 }
@@ -26,6 +31,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+	compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("org.springframework.boot:spring-boot-starter-test")
