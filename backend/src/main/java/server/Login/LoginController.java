@@ -10,17 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    // @Autowired
-	// private LoginCredentialsInterface loginDAO;
-
-    private static final String greeting = "Hello, %s!";
-    private static final String message = "Login successful: %s!";
-
-    @RequestMapping(value="/login", method=RequestMethod.PUT)
+    @RequestMapping(value="/login", method=RequestMethod.POST)
     public boolean POSTlogin(@RequestBody LoginCredentials info) throws Exception {
         boolean success = info.getPassword().equals("password") ? true : false;
-        System.out.println("HIT POSTlogin");
-        System.out.println(info.getPassword());
         return success;
     }
 
