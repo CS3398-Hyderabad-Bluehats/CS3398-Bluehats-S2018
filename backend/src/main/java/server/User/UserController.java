@@ -1,15 +1,24 @@
 package server.User;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import java.util.List;
 
 
 
-@RestController
+//@RestController
 public class UserController {
-    @RequestMapping(value="/user", method=RequestMethod.GET)
+    @Autowired
+    private MongoClient mongoClient;
+    @Override
     public UserDetails GETuser(String email) throws UsernameNotFoundException {
         MongoDatabase database = mongoClient.getDatabase("springsecurity");
         MongoCollection<Document> collection = database.getCollection("users");
