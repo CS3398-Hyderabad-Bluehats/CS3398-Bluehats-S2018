@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     let tempName = logForm.value.name;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    this.http.put("http://localhost:8080/login",
+    this.http.post("http://localhost:8080/login",
       { name: logForm.value.name, password: logForm.value.password },
       { headers: headers }
     ).subscribe(results => {
