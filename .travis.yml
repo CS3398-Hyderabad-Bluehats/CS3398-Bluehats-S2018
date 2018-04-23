@@ -39,6 +39,5 @@ matrix:
       script:
         - gradle clean
         - gradle build
-        - gradle run
       after_script:
         - cd .. 
