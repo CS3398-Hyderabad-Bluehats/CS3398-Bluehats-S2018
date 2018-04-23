@@ -2,51 +2,52 @@
   <h1>Login</h1>
   <div class="form-group">
     <form (ngSubmit)="loginSubmit(logForm);" #logForm="ngForm">
-      <label for="name">Username:</label>
-      <input type="text" class="form-control" id="username" required [(ngModel)]="logForm.name" name="name" #username="ngModel">
-      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-        Incorrect username
-      </div>
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" required [(ngModel)]="logForm.password" name="password" #password="ngModel">
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Incorrect password
-      </div>
-      <button id="loginButton" type="submit" class="btn btn-success" [disabled]="!loginEnabled || !logForm.form.valid">Login</button>
-      <button type="button" class="btn btn-success" (click)="openModal(content)">Register</button>
-    </form>
-  </div>
+        <label for="name">Username:</label>
+        <input id="userField" type="text" class="form-control" id="username" required [(ngModel)]="logForm.name" name="name" #username="ngModel">
+        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+            Incorrect username
+          </div>
+        <label for="password">Password:</label>
+        <input id="passField" type="password" class="form-control" id="password" required [(ngModel)]="logForm.password" name="password" #password="ngModel">
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+          Incorrect password
+        </div>
+      <button id="loginCSS" type="submit" class="btn btn-success" [disabled] = "!loginEnabled || !logForm.form.valid">Login</button>
+      <button id="regCSS" type="button" class="btn btn-success" (click)="open(content)">Register</button>
+      <label>
+        <input id="rememberme" name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label> 
+      </form>
+ </div>
 </div>
 
-
 <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Register</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form (ngSubmit)="regSubmit(regForm); c('Close click')" #regForm="ngForm">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="regModel.email" name="email" #email="ngModel">
-      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        Please enter a valid email
-      </div>
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" required [(ngModel)]="regModel.username" name="username" #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-        Must enter a valid username
-      </div>
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" required [(ngModel)]="regModel.password" name="password" #pass="ngModel">
-      <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
-        Must enter a valid password
-      </div>
-      <button id="regButton" type="submit" class="btn btn-outline-dark" style="width: 100%" [disabled]="!registerEnabled || !regForm.form.valid">Submit</button>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="newTask(); c('Close click')">Close</button>
-  </div>
-</ng-template>
+   <div class="modal-header">
+     <h4 class="modal-title">Register</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+       <span aria-hidden="true">&times;</span>
+     </button> 
+   </div>
+   <div class="modal-body">
+      <form (ngSubmit)="regSubmit(regForm); c('Close click')" #regForm="ngForm">
+       <label for="email">Email</label>
+       <input type="text" class="form-control" id="email" required [(ngModel)]="regModel.email" name="email" #email="ngModel">
+       <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+         Please enter a valid email
+       </div>
+       <label for="username">Username</label>
+       <input type="text" class="form-control" id="username" required [(ngModel)]="regModel.username" name="username" #name="ngModel">
+       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+         Must enter a valid username
+       </div> 
+       <label for="password">Password</label> 
+       <input type="password" class="form-control" id="password" required [(ngModel)]="regModel.password" name="password" #pass="ngModel">
+       <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+          Must enter a valid password
+        </div> 
+       <button type="submit" class="btn btn-outline-dark" style="width: 100%" [disabled] ="!regForm.form.valid">Submit</button> 
+      </form> 
+   </div>
+   <div class="modal-footer">
+     <button type="button" class="btn btn-outline-dark" (click)="newTask(); c('Close click')">Close</button>
+   </div>
+ </ng-template>

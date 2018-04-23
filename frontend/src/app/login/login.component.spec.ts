@@ -100,7 +100,7 @@ describe('LoginComponent', () => {
   });
 
   it('disabling login should disable the login button.', () => {
-    let loginSubmit = componentFixture.debugElement.query(By.css('#loginButton'));
+    let loginSubmit = componentFixture.debugElement.query(By.css('#loginCSS'));
     component.loginEnabled = false;
     componentFixture.detectChanges();
     expect(loginSubmit.nativeElement.disabled).toBeTruthy();
