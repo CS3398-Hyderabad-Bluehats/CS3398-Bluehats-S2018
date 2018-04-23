@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 matrix:
   include:
 <<<<<<< HEAD
@@ -22,3 +23,48 @@ matrix:
         - ng build
       after_script:
         - cd ..
+=======
+sudo: required
+dist: trusty
+matrix:
+  include:    
+    # Angular Frontend
+    - language: node_js
+      node_js: '7'
+
+      addons:
+        apt:
+          sources:
+            - google-chrome
+          packages:
+            - google-chrome-stable
+            - google-chrome-beta
+
+      before_install:
+        - export CHROME_BIN=chromium-browser
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+
+      before_script:
+        - cd frontend
+        - npm install -g angular-cli
+        - npm install -g karma
+        - npm install
+        - ng build
+
+      after_script:
+        - cd ..
+
+      script: karma start karma.conf.js --single-run
+
+    # Java Backend
+    - language: java
+      
+      before_script:
+        - cd backend
+      script:
+        - ./gradlew assemble
+        - ./gradlew build
+      after_script:
+        - cd .. 
+>>>>>>> 3b6118c9a77a3c1b7adef936f7e4ace30698cbaf

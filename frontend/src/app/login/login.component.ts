@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/register');
   }*/
 
-
   // These functions make alerts to the web page
   // you can use them by calling this.success("My alert message").
   success(message: string) {

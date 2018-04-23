@@ -54,3 +54,7 @@ yarn-error.log
 
 # rollup-test output
 /modules/rollup-test/dist/
+<<<<<<< HEAD
+=======
+/.metadata/
+>>>>>>> 3b6118c9a77a3c1b7adef936f7e4ace30698cbaf

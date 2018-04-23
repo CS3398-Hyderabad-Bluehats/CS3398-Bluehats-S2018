@@ -11,6 +11,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+<<<<<<< HEAD
+=======
+apply plugin: 'io.spring.dependency-management'
+>>>>>>> 3b6118c9a77a3c1b7adef936f7e4ace30698cbaf
 
 jar {
     baseName = 'gs-spring-boot'
