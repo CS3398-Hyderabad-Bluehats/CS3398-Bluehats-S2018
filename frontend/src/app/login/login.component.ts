@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Login } from './login';
 import { Router } from '@angular/router';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { Register } from './register';
 
@@ -17,11 +17,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  title = "Login";
+  closeResult: string;
   model = new Login('system', 'password');
   regModel = new Register('', '', '');
+  
 
-  submitted = false;
+  @ViewChild('content') modalRef: NgbModalRef;
+  @Input() loginEnabled = true; 
+  @Input() registerEnabled = true;
 
   constructor(
     private router: Router,
@@ -29,24 +33,21 @@ export class LoginComponent implements OnInit {
     private titleService: Title,
     private modalService: NgbModal,
     private http: HttpClient
-  ) { }
+    ) {}
 
   ngOnInit() {
-    this.titleService.setTitle("Login");
+    this.titleService.setTitle(this.title);
   }
 
   loginSubmit(logForm: NgForm) {
-    console.log(logForm.value);
     let tempName = logForm.value.name;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    this.http.put("http://localhost:8080/login",
+    this.http.post("http://localhost:8080/login",
       { name: logForm.value.name, password: logForm.value.password },
       { headers: headers }
     ).subscribe(results => {
       logForm.reset();
-      console.log("Results from LOGIN POST");
-      console.log(results);
       if (results) {
         this.router.navigateByUrl('/home');
         this.alertService.success("Welcome " + tempName);
@@ -56,9 +57,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-
-  open(content) { this.modalService.open(content); }
+  
   newTask() { this.model = new Register('', '', ''); }
 
   regSubmit(regForm: NgForm) {
@@ -76,6 +75,7 @@ export class LoginComponent implements OnInit {
   /*Register() {
     this.router.navigateByUrl('/register');
   }*/
+
 
   // These functions make alerts to the web page
   // you can use them by calling this.success("My alert message").
@@ -99,4 +99,32 @@ export class LoginComponent implements OnInit {
     this.alertService.clear();
   }
 
+  // Modal Stuff
+  openModal(content) {
+    this.modalRef = this.modalService.open(content);
+    this.modalRef.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  closeModal() { this.modalRef.close(); }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+}
+
+@Component({
+  templateUrl: './login.component.html',
+})
+export class LoginComponentWrapper {
+  @ViewChild(LoginComponent) myComponent: LoginComponent;
 }

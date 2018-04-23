@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     LoginRoutingModule
   ],
   declarations: [LoginComponent],
-  bootstrap: [LoginComponent]
-
+  bootstrap: [LoginComponent],
 })
 export class LoginModule {}
