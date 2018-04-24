@@ -1,23 +1,24 @@
 <div class="container-fluid">
-    <h1>Login</h1>
-    <div class="form-group">
+  <h1>Login</h1>
+  <div class="form-group">
     <form (ngSubmit)="loginSubmit(logForm);" #logForm="ngForm">
         <label for="name">Username:</label>
-        <input type="text" class="form-control" id="username" required [(ngModel)]="logForm.name" name="name" #username="ngModel">
+        <input id="userField" type="text" class="form-control" id="username" required [(ngModel)]="logForm.name" name="name" #username="ngModel">
         <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
             Incorrect username
           </div>
         <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" required [(ngModel)]="logForm.password" name="password" #password="ngModel">
+        <input id="passField" type="password" class="form-control" id="password" required [(ngModel)]="logForm.password" name="password" #password="ngModel">
         <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
           Incorrect password
         </div>
-      <button type="submit" class="btn btn-success" [disabled] = "!logForm.form.valid">Login</button>
-      <button type="button" class="btn btn-success" (click)="open(content)">Register</button>
+      <button id="loginCSS" type="submit" class="btn btn-success" [disabled] = "!loginEnabled || !logForm.form.valid">Login</button>
+      <button id="regCSS" type="button" class="btn btn-success" (click)="open(content)">Register</button>
+      <label>
+        <input id="rememberme" name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label> 
       </form>
  </div>
 </div>
-
 
 <ng-template #content let-c="close" let-d="dismiss">
    <div class="modal-header">

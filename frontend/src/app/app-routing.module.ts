@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomePageComponent } from './home/home-page.component';
 
-const defaultRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+export const defaultRoutes: Routes = [
+  { 
+    path: '', 
+    redirectTo: 'home', 
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
