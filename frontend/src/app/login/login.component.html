@@ -42,7 +42,7 @@
        <label for="password">Password</label> 
        <input type="password" id="password" required [(ngModel)]="regModel.password" name="password" #pass="ngModel">
        <div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
-          Must enter a valid password
+          Please enter a valid password
         </div> 
        <button type="submit" class="btn btn-outline-dark" style="width: 100%" [disabled] ="!regForm.form.valid">Submit</button> 
       </form> 
