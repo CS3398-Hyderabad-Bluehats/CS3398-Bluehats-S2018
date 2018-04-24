@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Stratus
 [![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=development)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
 <BR>
