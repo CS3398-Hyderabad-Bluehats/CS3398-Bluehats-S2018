@@ -1,4 +1,55 @@
-## Change to Readme Per inclass Practice - JGarrison  5:46 2/7###
+# Stratus
+Master: <BR>[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=master)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
+<BR>
+Development: <BR>[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018.svg?branch=development)](https://travis-ci.org/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018)
+<BR>
+<BR>
+Stratus is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
+<BR>
+## Status of Project:
+### Currently completed:
+**Frontend**
+- Pages:
+    1. Home
+    2. Image
+    3. Login
+    4. User
+
+- Features:
+    1. User login with password validation.
+    2. Alert message system
+    3. Modular routing
+    4. Unit Testing with Karma
+
+**Backend**
+- Server:
+    1. Application Server
+
+- API:
+    1. Login Controller
+
+- Models:
+    1. DAO implementations for Models
+
+### In progress:
+**Frontend**
+- Features:
+    1. Stay logged in feature
+    2. Image integration
+    3. Sidebar integration
+    4. Homepage ranking system
+
+**Backend**
+- API:
+    1. Image Controller
+    2. Home Page Controller
+    3. User Page Controller
+
+- DB:
+    1. Hibernate/Sprint boot DB API configuration
+
+- Unit Testing:
+    1. Add unit tests for each module/component
 
 ## Welcome to GitHub Pages
 
