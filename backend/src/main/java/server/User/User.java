@@ -1,30 +1,15 @@
 package server.User;
 import java.util.Random;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.UserDetails;
-
 public class User {
-  public String ID;
   private String username;
   private String password;
   private String firstname;
   private String lastname;
-
+  private String email;
+  private String address;
+  private int phone;
   private boolean publicVisibility = true;
-  
-
-  private List<GrantedAuthority> grantedAuthorities;
-  public User(String username,String password,String[] authorities) {
-      this.username = username;
-      this.password = password;
-      this.grantedAuthorities = AuthorityUtils.createAuthorityList(authorities);
-  }
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-      return grantedAuthorities;
-  }
 
   public String getUsername() {
     return username;
@@ -56,6 +41,14 @@ public class User {
 
   public void setLastname(String lastname) {
     this.lastname = lastname;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public void resetPassword()

@@ -1,22 +1,22 @@
-package server.encoder;
+// package server.encoder;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.crypto.bcrypt.BCrypt;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class CustomPasswordEncoder implements PasswordEncoder {
+// public class CustomPasswordEncoder implements PasswordEncoder {
 
-    @Override
-    public String encode(CharSequence rawPassword) {
+//     @Override
+//     public String encode(CharSequence rawPassword) {
 
-        String hashed = BCrypt.hashpw(rawPassword.toString(), BCrypt.gensalt(12));
+//         String hashed = BCrypt.hashpw(rawPassword.toString(), BCrypt.gensalt(12));
 
-        return hashed;
-    }
+//         return hashed;
+//     }
 
-    @Override
-    public boolean matches(CharSequence rawPassword, String encodedPassword) {
+//     @Override
+//     public boolean matches(CharSequence rawPassword, String encodedPassword) {
 
-        return BCrypt.checkpw(rawPassword.toString(), encodedPassword);
-    }
+//         return BCrypt.checkpw(rawPassword.toString(), encodedPassword);
+//     }
 
-}
+// }
