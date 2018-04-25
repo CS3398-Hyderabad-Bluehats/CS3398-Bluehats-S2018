@@ -6,8 +6,35 @@ Development: <BR>[![Build Status](https://travis-ci.org/CS3398-Hyderabad-Bluehat
 <BR>
 Stratus is a web application displaying, viewing, and sharing images. It's like instagram but better, because we put our images on the line. <BR>
 <BR>
-## Status of Project:
-### Currently completed:
+
+# Team Members
+- Frontend
+    * Ryan Howard
+        1. Added login page
+        2. Added frontend login logic
+        3. Added registration modal and form
+        4. Added styling and image content
+    * Michael Scales
+        1. Added image, home, and user pages
+        2. Added angular unit tests
+        3. Added toast alert system
+- Backend
+    * Ryan Norman
+        1. Added User code
+        2. Created User models
+        3. Wrote business logic to be implemented
+        4. Helped develop login controller
+    * James Garrison
+        1. Added security code
+        2. Added mongodb configuration
+        3. Helped develop login controller
+    * Michael Scales
+        1. Added Spring Boot unit tests
+        2. Helped develop login controller
+        3. Wrote home controller
+
+# Status of Project:
+## Currently completed:
 **Frontend**
 - Pages:
     1. Home
@@ -16,10 +43,15 @@ Stratus is a web application displaying, viewing, and sharing images. It's like 
     4. User
 
 - Features:
-    1. User login with password validation.
-    2. Alert message system
+    1. User login with password validation
+    2. Toast alert message system
     3. Modular routing
     4. Unit Testing with Karma
+    5. Sidebar information display
+
+- Testing:
+    1. Unittests for all components
+    2. Some component logic testings
 
 **Backend**
 - Server:
@@ -27,64 +59,28 @@ Stratus is a web application displaying, viewing, and sharing images. It's like 
 
 - API:
     1. Login Controller
+    2. Home Controller
+    3. Registration Controller (Partial)
+    4. User Authentication (Partial)
 
 - Models:
     1. DAO implementations for Models
+    2. Mongodb configuration
 
 ### In progress:
 **Frontend**
 - Features:
-    1. Stay logged in feature
-    2. Image integration
-    3. Sidebar integration
-    4. Homepage ranking system
+    1. Image integration
+    2. Sidebar integration
+    3. Homepage ranking system
+    4. Unify styling across pages
 
 **Backend**
 - API:
     1. Image Controller
-    2. Home Page Controller
-    3. User Page Controller
+    2. User Page Controller
+    3. 
 
 - DB:
-    1. Hibernate/Sprint boot DB API configuration
-
-- Unit Testing:
-    1. Add unit tests for each module/component
-
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CS3398-Hyderabad-Bluehats/CS3398-Bluehats-S2018/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+    1. Mongodb
+    
