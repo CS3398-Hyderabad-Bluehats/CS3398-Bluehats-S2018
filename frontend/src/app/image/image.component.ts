@@ -9,6 +9,8 @@ import { FancyImageUploaderOptions, UploadedFile } from 'ng2-fancy-image-uploade
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
+  title = "User Images";
+
   options: FancyImageUploaderOptions = {
     thumbnailHeight: 200,
     thumbnailWidth: 200,
@@ -17,10 +19,12 @@ export class ImageComponent implements OnInit {
     maxImageSize: 3
   };
 
-  constructor(private titleService: Title) {}
+  constructor(
+    private titleService: Title
+  ) {}
 
   ngOnInit() {
-    this.titleService.setTitle("User Images");
+    this.titleService.setTitle(this.title);
   }
 
   onUpload(file: UploadedFile) {

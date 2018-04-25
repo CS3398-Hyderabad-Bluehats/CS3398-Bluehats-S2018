@@ -37,7 +37,7 @@ matrix:
       before_script:
         - cd backend
       script:
-        - ./gradlew assemble
-        - ./gradlew build
+        - gradle clean
+        - gradle build
       after_script:
         - cd .. 

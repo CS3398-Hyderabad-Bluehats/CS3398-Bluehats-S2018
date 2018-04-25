@@ -1,7 +1,7 @@
-package server.Login;
+package server.Home;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -22,10 +21,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class LoginControllerTest {
+public class HomeControllerTest {
 
     @Autowired
-    private LoginController controller;
+    private HomeController controller;
 
     @Autowired
     ObjectMapper objectMapper;
@@ -39,33 +38,23 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void testPOSTlogin() throws Exception {
-        LoginCredentials testCredentials = new LoginCredentials();
-        testCredentials.setName("Mike");
-        testCredentials.setPassword("password");
-        this.mockMvc.perform(post("/login")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(testCredentials))
+    public void testHome() throws Exception {
+        this.mockMvc.perform(get("/home")
+            .header("Accept", "*/*")
         )
+        .andDo(print())
         .andExpect(status().isOk());
     }
 
     @Test
-    public void testPOSTloginRejected() throws Exception {
-        LoginCredentials testCredentials = new LoginCredentials();
-        testCredentials.setName("Mike");
-        testCredentials.setPassword("notpassword");
-        MvcResult result = this.mockMvc.perform(post("/login")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(testCredentials))
+    public void testImages() throws Exception {
+        MvcResult result = this.mockMvc.perform(get("/home")
+            .header("Accept", "*/*")
         )
         .andDo(print())
         .andExpect(status().isOk())
         .andReturn();
-
-        String content = result.getResponse().getContentAsString();
-        System.out.println(content);
-        assertThat(content).isEqualTo("false");
+        
+        System.out.println(result.toString());
     }
-
 }
